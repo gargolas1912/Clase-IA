@@ -4,7 +4,7 @@ Notebook de Google Colab con un pipeline de clasificación basado en 3 agentes p
 
 **Dataset:** [Telco Customer Churn — Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
 
-\---
+\
 
 ## Arquitectura
 
@@ -34,7 +34,7 @@ Dataset CSV
 * **Agente 2 (Entrenador):** entrena Random Forest y Logistic Regression, evalúa con accuracy, precision, recall y F1, y selecciona el modelo con mejor F1.
 * **Agente 3 (Comunicador):** usa `google/flan-t5-base` para generar un reporte académico en lenguaje natural y responder preguntas interactivas sobre el dataset y las métricas.
 
-\---
+\
 
 ## Resultados
 
@@ -47,7 +47,7 @@ El Agente 2 entrenó 2 modelos y los comparó por F1:
 
 El mejor modelo fue **Logistic Regression**, con el F1 más alto (0.5916). También tuvo mejor accuracy y precision que Random Forest, aunque la diferencia en recall fue la más significativa.
 
-\---
+\
 
 ## Cambios y problemas que surgieron
 
@@ -59,7 +59,7 @@ El mejor modelo fue **Logistic Regression**, con el F1 más alto (0.5916). Tambi
 * Hubo un `IndentationError` en el método `\_generar()`: el cuerpo de la función (`inputs = ...`, `with torch.no\_grad():`, `return ...`) no estaba indentado dentro de la definición del método.
 * Se detectó un `FutureWarning` de pandas en `datos\["TotalCharges"].fillna(..., inplace=True)`, ya que ese patrón quedará deprecado en pandas 3.0. Pendiente de migrar a `datos\["TotalCharges"] = datos\["TotalCharges"].fillna(...)`.
 
-\---
+\
 
 ## Cómo ejecutar
 
